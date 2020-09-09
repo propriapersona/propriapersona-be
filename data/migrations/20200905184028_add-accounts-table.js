@@ -7,7 +7,7 @@ exports.up = function (knex) {
       tbl.string("name", 255).notNullable();
       tbl.string("email", 255).unique().notNullable();
     })
-    .createTable("person", (tbl) => {
+    .createTable("accounts", (tbl) => {
       tbl.increments();
       tbl.string("first_name", 255).notNullable();
       tbl.string("last_name", 255).notNullable();
@@ -16,6 +16,8 @@ exports.up = function (knex) {
       tbl.string("state", 255).notNullable();
       tbl.string("zip", 255).notNullable();
       tbl.string("case_number", 255);
+      tbl.string("case_type", 255).notNullable();
+      tbl.string("party_name", 255).notNullable();
       tbl
         .integer("user_id")
         .unsigned()
@@ -28,5 +30,5 @@ exports.up = function (knex) {
 };
 
 exports.down = function (knex) {
-  return knex.schema.dropTableIfExists("person").dropTableIfExists("users");
+  return knex.schema.dropTableIfExists("accounts").dropTableIfExists("users");
 };
