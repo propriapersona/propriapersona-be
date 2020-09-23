@@ -9,15 +9,15 @@ exports.up = function (knex) {
     })
     .createTable("accounts", (tbl) => {
       tbl.increments();
-      tbl.string("first_name", 255).notNullable();
-      tbl.string("last_name", 255).notNullable();
-      tbl.string("address", 255).notNullable();
-      tbl.string("city", 255).notNullable();
-      tbl.string("state", 255).notNullable();
-      tbl.string("zip", 255).notNullable();
+      tbl.string("first_name", 255);
+      tbl.string("last_name", 255);
+      tbl.string("address", 255);
+      tbl.string("city", 255);
+      tbl.string("state", 255);
+      tbl.string("zip", 255);
       tbl.string("case_number", 255);
-      tbl.string("case_type", 255).notNullable();
-      tbl.string("party_name", 255).notNullable();
+      tbl.string("case_type", 255);
+      tbl.string("party_name", 255);
       tbl
         .integer("user_id")
         .unsigned()

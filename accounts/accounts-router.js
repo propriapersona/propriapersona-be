@@ -17,16 +17,16 @@ router.post("/", (req, res) => {
     });
 });
 
-// router.get("/", (req, res) => {
-//   // Need to figure out if I want to add the username to the route.
-// })
+router.get("/", (req, res) => {
+  //
+});
 
 // router.put("/", (req, res) => {
 //   // To edit account information
 // })
 
 // router.delete("/" (req, res) => {
-//   // For deleting the entire record. Think if that is a good idea. Might re-visit making more of the fields for the table nullable.
+//   // For deleting the entire record. Think if that is a good idea.
 // })
 
 module.exports = router;
