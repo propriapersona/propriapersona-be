@@ -12,6 +12,7 @@ exports.up = function (knex) {
       tbl.string("first_name", 255);
       tbl.string("last_name", 255);
       tbl.string("address", 255);
+      tbl.string("address2", 255);
       tbl.string("city", 255);
       tbl.string("state", 255);
       tbl.string("zip", 255);

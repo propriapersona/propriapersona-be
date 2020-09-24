@@ -3,14 +3,27 @@ const db = require("../data/db-config.js");
 async function add(account) {
   const [id] = await db("accounts").returning("id").insert(account);
 
-  return findById(id);
+  return findByAccountId(id);
 }
 
-async function findById(id) {
+async function findByUserId(id) {
+  return await db("accounts").where({ user_id: id }).first();
+}
+
+async function findByAccountId(id) {
   return await db("accounts").where({ id }).first();
+}
+
+async function updateAccount(id, changes) {
+  await db("accounts").where({ id }).update(changes);
+
+  const changedGraph = await findByAccountId(id);
+  return changedGraph;
 }
 
 module.exports = {
   add,
-  findById,
+  findByUserId,
+  findByAccountId,
+  updateAccount,
 };

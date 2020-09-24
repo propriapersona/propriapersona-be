@@ -4,6 +4,10 @@ function findById(id) {
   return db("users").where({ id }).first();
 }
 
+function findByUsername(username) {
+  return db("users").where({ username }).first();
+}
+
 function findBy(filter) {
   return db("users").where(filter);
 }
@@ -31,6 +35,7 @@ async function deleteUser(id) {
 module.exports = {
   findById,
   findBy,
+  findByUsername,
   add,
   updateUser,
   deleteUser,
