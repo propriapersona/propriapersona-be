@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cross-env jest --watchAll",
     "server": "nodemon index.js",
     "start": "node index.js"
   },
@@ -35,5 +35,8 @@
     "cross-env": "^7.0.2",
     "jest": "^26.4.2",
     "supertest": "^5.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
