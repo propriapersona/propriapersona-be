@@ -9,4 +9,9 @@ describe("GET /", () => {
     const res = await request(server).get("/");
     expect(res.status).toBe(200);
   });
+
+  it("should return text", async () => {
+    const res = await request(server).get("/");
+    expect(res.type).toBe("text/html");
+  });
 });
