@@ -27,9 +27,28 @@ exports.up = function (knex) {
         .inTable("users")
         .onDelete("CASCADE")
         .onUpdate("CASCADE");
+    })
+    .createTable("events", (tbl) => {
+      tbl.increments();
+      tbl.string("event_name", 255);
+      tbl.string("event_type", 255);
+      tbl.string("description", 255);
+      tbl.string("start_date", 255);
+      tbl.string("end_date", 255);
+      tbl
+        .integer("user_id")
+        .unsigned()
+        .notNullable()
+        .references("id")
+        .inTable("users")
+        .onDelete("CASCADE")
+        .onUpdate("CASCADE");
     });
 };
 
 exports.down = function (knex) {
-  return knex.schema.dropTableIfExists("accounts").dropTableIfExists("users");
+  return knex.schema
+    .dropTableIfExists("events")
+    .dropTableIfExists("accounts")
+    .dropTableIfExists("users");
 };
