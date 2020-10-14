@@ -5,6 +5,7 @@ const helmet = require("helmet");
 // Routers and Middleware
 const authRouter = require("../auth/auth-router.js");
 const accountRouter = require("../accounts/accounts-router.js");
+const eventsRouter = require("../events/events-router.js");
 
 const authenticate = require("../auth/authenticate-middleware.js");
 
@@ -16,6 +17,7 @@ server.use(express.json());
 
 server.use("/api/auth", authRouter);
 server.use("/api/account", authenticate, accountRouter);
+server.use("/api/events", authenticate, eventsRouter);
 
 server.get("/", (req, res) => {
   res.send("<h1>Propria Persona</h1>");
