@@ -17,8 +17,8 @@ async function findByAccountId(id) {
 async function updateAccount(id, changes) {
   await db("accounts").where({ id }).update(changes);
 
-  const changedGraph = await findByAccountId(id);
-  return changedGraph;
+  const changedAccount = await findByAccountId(id);
+  return changedAccount;
 }
 
 module.exports = {

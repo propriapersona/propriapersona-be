@@ -30,11 +30,11 @@ exports.up = function (knex) {
     })
     .createTable("events", (tbl) => {
       tbl.increments();
-      tbl.string("event_name", 255);
-      tbl.string("event_type", 255);
+      tbl.string("event_name", 255).notNullable();
+      tbl.string("event_type", 255).notNullable();
       tbl.string("description", 255);
-      tbl.string("start_date", 255);
-      tbl.string("end_date", 255);
+      tbl.string("start_date", 255).notNullable();
+      tbl.string("end_date", 255).notNullable();
       tbl
         .integer("user_id")
         .unsigned()
