@@ -16,8 +16,8 @@ server.use(helmet());
 server.use(express.json());
 
 server.use("/api/auth", authRouter);
-server.use("/api/account", authenticate, accountRouter);
-server.use("/api/events", authenticate, eventsRouter);
+server.use("/api/account", accountRouter);
+server.use("/api/events", eventsRouter);
 
 server.get("/", (req, res) => {
   res.send("<h1>Propria Persona</h1>");
