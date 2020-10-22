@@ -43,11 +43,28 @@ exports.up = function (knex) {
         .inTable("users")
         .onDelete("CASCADE")
         .onUpdate("CASCADE");
+    })
+    .createTable("tasks", (tbl) => {
+      tbl.increments();
+      tbl.string("task_name", 255).notNullable();
+      tbl.string("task_description", 255).notNullable();
+      tbl.timestamps();
+      tbl.string("date_due", 255).notNullable();
+      tbl.boolean("isComplete").notNullable();
+      tbl
+        .integer("user_id")
+        .unsigned()
+        .notNullable()
+        .references("id")
+        .inTable("users")
+        .onDelete("CASCADE")
+        .onUpdate("CASCADE");
     });
 };
 
 exports.down = function (knex) {
   return knex.schema
+    .dropTableIfExists("tasks")
     .dropTableIfExists("events")
     .dropTableIfExists("accounts")
     .dropTableIfExists("users");
